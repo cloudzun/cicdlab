@@ -1,7 +1,3 @@
-# 最简Docker CI/CD演示场景
-
-
-
 # 项目需求
 
 **CloudZun:** 我想做一个最简单的基于docker 容器的CI/CD演示场景，以下是一些要求 
