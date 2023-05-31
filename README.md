@@ -1,4 +1,6 @@
-# 项目需求
+# 最简Docker CI/CD 实验场景
+
+## 项目需求
 
 **CloudZun:** 我想做一个最简单的基于docker 容器的CI/CD演示场景，以下是一些要求 
 
@@ -27,7 +29,7 @@
 
 
 
-# 创建项目文件
+## 创建项目文件
 
 好的，那么接下来，我们逐步完成这个项目，我们先做第一步 创建静态HTML应用并将其存储在GitHub上，不过和你预先设计的不同，我们使用httpd这个映像作为静态HTML的基准映像，接下来请给我HTML文件和dockerfile文件的范例，谢谢！
 
@@ -73,7 +75,7 @@ CMD ["httpd-foreground"]
 
 
 
-# 设置GitHub Actions自动构建并推送镜像到Docker Hub
+## 设置GitHub Actions自动构建并推送镜像到Docker Hub
 
 **CloudZun：**好的，第一步已经完成，我的项目库的路径在https://github.com/cloudzun/cicdlab/，请继续提供第二步设置GitHub Actions的操作步骤，谢谢！
 
@@ -177,7 +179,7 @@ GitHub Actions已经接管了这部分工作。每次你推送更改到GitHub，
 
 
 
-# 设置Docker容器的自动更新
+## 设置Docker容器的自动更新
 
 **CloudZun：**上述问题按照您的提示我已经解决了，而且我已经在某个宿主机上使用`docker run -d -p 80:80 chengzh/cicdlab` 运行了这个容器化服务，目前效果达到预期，请告诉我第四部的具体步骤，谢谢！
 
