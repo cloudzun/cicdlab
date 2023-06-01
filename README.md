@@ -31,7 +31,7 @@
 
 ## 创建项目文件
 
-好的，那么接下来，我们逐步完成这个项目，我们先做第一步 创建静态HTML应用并将其存储在GitHub上，不过和你预先设计的不同，我们使用httpd这个映像作为静态HTML的基准映像，接下来请给我HTML文件和dockerfile文件的范例，谢谢！
+好的，那么接下来，我们逐步完成这个项目，我们先做第一步 创建静态HTML应用并将其存储在GitHub上，不过和你预先设计的不同，我们使用更精简的基准映像作为静态HTML的基准映像，接下来请给我HTML文件和dockerfile文件的范例，谢谢！
 
 **ChatGPT:** 非常好，下面是HTML文件和Dockerfile的示例。
 
@@ -74,6 +74,16 @@ EXPOSE 80
 # 当容器启动时运行lighttpd
 CMD ["lighttpd", "-D", "-f", "/etc/lighttpd/lighttpd.conf"]
 ```
+
+这个Dockerfile做了以下几件事：
+
+1. 使用Alpine Linux作为基础映像。
+2. 安装lighttpd，它是一个轻量级的HTTP服务器。
+3. 将你的静态HTML页面复制到镜像中的/var/www/localhost/htdocs/目录。
+4. 暴露了80端口，这是HTTP的默认端口。
+5. 当容器启动时，运行lighttpd并保持前台运行。
+请注意，这个示例假设你的HTML文件名为index.html，并且它位于与Dockerfile相同的目录中。如果你的文件名或路径不同，你需要相应地修改COPY命令。
+
 
 请将这个Dockerfile和你的HTML文件放在你的GitHub仓库中的同一个目录下，然后提交这些文件到GitHub。这就完成了第一步。
 
