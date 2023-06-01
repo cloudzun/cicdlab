@@ -56,7 +56,7 @@
 
 **2. Dockerfile**
 
-以下是一个简单的Dockerfile，它基于httpd映像，并将你的静态页面复制到镜像中：
+以下是一个简单的Dockerfile，它基于Alpine Linux映像，并将你的静态页面复制到镜像中：
 
 ```dockerfile
 # 使用Alpine Linux作为基础映像
