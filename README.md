@@ -43,11 +43,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>我的静态页面</title>
+    <title>CICD Lab Page</title>
 </head>
 <body>
-    <h1>欢迎来到我的静态页面！</h1>
-    <p>这是一个简单的HTML静态页面。</p>
+    <h1>Welcome to My Lab</h1>
+    <p>Powered by Github + Docker hub </p>
+    <p>version: 2023/5/31 11:27 </p>
+    <p>Here is a link to my GitHub repository: <a href="https://github.com/cloudzun/cicdlab" target="_blank">https://github.com/cloudzun/cicdlab</a></p>
 </body>
 </html>
 ```
@@ -57,14 +59,20 @@
 以下是一个简单的Dockerfile，它基于httpd映像，并将你的静态页面复制到镜像中：
 
 ```dockerfile
-# 使用httpd作为基准映像
-FROM httpd:2.4
+# 使用Alpine Linux作为基础映像
+FROM alpine:latest
+
+# 安装lighttpd
+RUN apk add --no-cache lighttpd
 
 # 将你的静态页面复制到镜像中
-COPY ./index.html /usr/local/apache2/htdocs/
+COPY ./index.html /var/www/localhost/htdocs/index.html
 
-# 当容器启动时运行httpd
-CMD ["httpd-foreground"]
+# 暴露80端口
+EXPOSE 80
+
+# 当容器启动时运行lighttpd
+CMD ["lighttpd", "-D", "-f", "/etc/lighttpd/lighttpd.conf"]
 ```
 
 请将这个Dockerfile和你的HTML文件放在你的GitHub仓库中的同一个目录下，然后提交这些文件到GitHub。这就完成了第一步。
