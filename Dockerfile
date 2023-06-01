@@ -1,8 +1,15 @@
-# 使用httpd作为基准映像
-FROM httpd:2.4
+# 使用Alpine Linux作为基础映像
+FROM alpine:latest
+
+# 安装lighttpd
+RUN apk add --no-cache lighttpd
 
 # 将你的静态页面复制到镜像中
-COPY ./index.html /usr/local/apache2/htdocs/
+COPY ./index.html /var/www/localhost/htdocs/index.html
 
-# 当容器启动时运行httpd
-CMD ["httpd-foreground"]
+# 暴露80端口
+EXPOSE 80
+
+# 当容器启动时运行lighttpd
+CMD ["lighttpd", "-D", "-f", "/etc/lighttpd/lighttpd.conf"]
+
